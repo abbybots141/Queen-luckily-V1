@@ -655,20 +655,11 @@ async function syncdb() {
       }
       await loadPlugins(plugin_dir);
       let _0x1f88ec = 
-`👑✨ ALL HAIL *${Config.botname}*! ZEAK-V1 HAS BEEN AWAKENED! ✨👑
-「 *Royal Systems* Now Active 」
-
-⚜️ *Prefix* : ${Config.HANDLERS}
-📜 *Royal Commands* : ${events.commands.length} Decrees Issued
-⚔️ *Mode* : ${Config.WORKTYPE} Governance
-🏰 *Database* : ${(isMongodb ? "💎 MongoDb" : sqldb ? "📚 PostgreSql" : "🌸 Zeak-V1 Core")}
-💫 _Royal Court_ 💫
-👸 *Sovereign*     : ${Config.ownername}
-🛡 *Knight Commander*: ${global.sudo}
-🌹 *Welcome Proclamation*: ${global.wlcm}
-🍂 *Farewell Proclamation*: ${global.gdbye}
-
-🌟 *${Config.botname}* reigns supreme, ready to lead her kingdom! 🌟`;
+`_*👑𝐊𝐈𝐍𝐆 𝐏𝐇𝐀𝐍𝐓𝐎𝐌 𝐈𝐒 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋𝐘 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃!*_
+              _*👑𝐌𝐚𝐝𝐞 𝐛𝐲 𝐭𝐡𝐞 𝐏𝐡𝐚𝐧𝐭𝐨𝐦 𝐍𝐚𝐭𝐢𝐨𝐧!*_
+*Prefix* : ${Config.HANDLERS}
+*Commands* : ${events.commands.length}
+*Mode* : ${Config.WORKTYPE}`;
       try {
         const _0x15a383 = require("../lib/scraper");
         let _0x4cf26d = await _0x15a383.syncgit();
@@ -1921,7 +1912,7 @@ async function MakeSession(_0x3344dc = SESSION_ID, _0xe1ef27 = __dirname + baile
       });
     });
   }
-  const _0x406ff0 = "/JUPITERBOLD05/";
+  const _0x406ff0 = "/STAR-KING0/";
   const _0x40fbb4 = toBool(_0x1532e1 || global.IS_ASTRO || process.env.IS_ASTRO, true) || (await _0x28b1d6(_0x406ff0, "./Dockerfile"));
   if (_0x40fbb4) {
     AstroOfficial = "yes";
