@@ -1,4 +1,4 @@
-// Import required modules
+/ Import required modules
 const os = require('os');
 const { Config, runtime, formatp, tiny, fancytext, readmore, commandCategories } = require('./utils');  // Assuming utils.js has the necessary functions
 const currentDate = new Date().toLocaleDateString();  // Get current date in a simple format
@@ -10,7 +10,7 @@ async function showMenu(context) {
     {
       header: "┏━━‧★ *{botname}* ★━━⦿\n",
       lineSeparator: "┃ ",
-      commandPrefix: "🌟 ",
+      commandPrefix: "🔥 ",
       footer: "━━━━━━━━━━━━━━━",
       emoji: "❃",
       greetingText: "Welcome to your serene command center!",
@@ -18,17 +18,17 @@ async function showMenu(context) {
     {
       header: "━━━✦ *{botname}* ✦━━━\n",
       lineSeparator: "┃ ",
-      commandPrefix: "🌟 ",
+      commandPrefix: "💯 ",
       footer: "━━━━━━━━━━━",
       emoji: "➤",
       greetingText: "Enjoy the magical commands!",
     },
     {
-      header: "【 *{botname}* 】\n",
+      header: "━━━━❃ *{botname}* ❃━━━━\n",
       lineSeparator: "┃ ",
-      commandPrefix: "💫 ",
+      commandPrefix: "💀 ",
       footer: "━━━━━━━━━━━━━",
-      emoji: "🙃",
+      emoji: "✦",
       greetingText: "Explore the enchanting commands below!",
     }
   ];
@@ -43,31 +43,37 @@ async function showMenu(context) {
 
     // List commands by category
     for (const category in commandCategories) {
-      menuContent += commandPrefix + " *" + tiny(category) + "* " + commandSuffix + "\n";
-      commandCategories[category].forEach(cmd => {
-        menuContent += "┃   ☘️ " + fancytext(cmd, 1) + "\n";
+      menuContent += `${design.emoji} *${tiny(category)}* ${design.emojj}\n`; commandCategories[category].forEach(cmd => {
+        menuContent += `${design.commandPrefix}${fancytext(cmd, 1)}\n`;
       });
     }
     
     // Final footer and credits
-    menuContent += footer + "\n\nᴍᴀᴅᴇ ᴡɪᴛʜ ʟᴏᴠᴇ *" + Config.botname + "*!\n  ©ᴀʙʙʏ\n" + readmore;
+    menuContent += `${footer}\n\n${design.emoji} *${Config.botname}* - Μα∂ɛ βʏ Lσя∂ 𝗔ввʏ Ƭɛcн\n`;
+    menuContent +=  `©βʏ ℓσя∂ 𝗔ввʏ Ƭɛcн\n${readmore}`;
 
     // Prepare the response object
     const response = {
       'caption': menuContent,
-      'ephemeralExpiration': 3000  // Optional: set expiration time for the UI message
+      'caption': menuContent,
+      'contextInfo': {
+        'forwardingScore': 100, 
+        'isForwarded': false,
+        'externalAdReply': {
+          'title': 'Ǫʋɛɛи ℓʋcκιℓʏ Ѵ1',
+          'sourceUrl': 'https://whatsapp.com/channel/0029VahOucpCcW4s1Zk3O61A'
+        }
+      },
+      'ephemeralExpiration': 3000
     };
 
-    // Send the UI response
-    await context.sendUi(context.chat, response, context);
+    // Send the menu
+    await context.sendUi(context.chat, menuOptions, context);
+
+    // Play soft background audio after sending the menu
+    await sendAnimeBackgroundAudio(context, 'Queen luckily V1.mp3');
 
   } catch (error) {
-    // Error handling
-    await context.error(error + "\nCommand: menu", error);
+    await context.error(`Error: ${error.message}`, error);
   }
-}
-
-// Export the function for use in other parts of the bot
-module.exports = {
-  showMenu
-};
+});
